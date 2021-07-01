@@ -389,7 +389,7 @@ class _ProductsState extends State<Products> {
                           _updateCartItemsOnServer();
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => CartItems()),
+                            MaterialPageRoute(builder: (context) => Cart()),
                           );
                         },
                         child: Container(

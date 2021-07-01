@@ -59,7 +59,7 @@ class SharedManager {
   bool isCouponApplied = false;
   var discountType = "";
   var discount = "0";
-  var discountPice = "0";
+  var discountPice = "5.0";
   double tempTotalPrice = 0.0;
   var couponCode = '';
   var couponCodeImage = '';

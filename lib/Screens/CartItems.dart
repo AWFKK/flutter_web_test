@@ -6,20 +6,27 @@ import 'package:flutter_web_test/Helper/DatabaseHelper.dart';
 import 'package:flutter_web_test/Helper/SharedManaged.dart';
 import 'package:flutter_web_test/ModelClass/ModelCartList.dart';
 import 'package:flutter_web_test/Navbar/Navbar.dart';
+import 'package:flutter_web_test/Screens/Checkout.dart';
 import 'package:flutter_web_test/Screens/Products.dart';
 import 'package:flutter_web_test/generated/i18n.dart';
 import 'package:flutter_web_test/main.dart';
 import 'package:intl/intl.dart';
 
-class CartItems extends StatefulWidget {
+class Cart extends StatefulWidget {
   @override
-  _CartItemsState createState() => _CartItemsState();
+  _CartState createState() => _CartState();
 }
 
-class _CartItemsState extends State<CartItems> {
+class _CartState extends State<Cart> {
 
   var totalPrice = 0.0;
   var paidPrice = 0.0;
+
+  var riderTip = 0;
+  var charge = 10;            //We Can Set Delivery Charges Here
+
+  var discountedPrice = 0.0;
+  var grandTotalAmount = 0.0;
 
   List<CartProduct> cartList;
 
@@ -108,7 +115,18 @@ class _CartItemsState extends State<CartItems> {
                                   child: isLoaded ? InkWell(
                                     onTap: (){
                                       _fetchCartList();
-                                      logOutOverLay(context, 'InstaDoor', 'Please New Scree', Icons.home, 'Address' );
+                                      Navigator.of(context).push(MaterialPageRoute(
+                                          builder: (context) => Checkout(
+                                            charge: "${this.charge}",
+                                            discountedPrice: "${this.discountedPrice}",
+                                            grandTotalAmount: "${this.totalPrice.toStringAsFixed(2)}",
+                                            tipAmount: "${this.riderTip}",
+                                            totalPrice: "${this.totalPrice.toStringAsFixed(2)}",
+                                            totalSaving: "${this.paidPrice + 20}",
+                                            cartItems: cartList,
+                                            deliveryDate: this.date,
+                                            deliveryTime: this.time,
+                                          )));
                                     },
                                     child: Container(
                                       height: 60,

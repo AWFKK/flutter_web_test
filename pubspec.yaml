@@ -37,7 +37,7 @@ dev_dependencies:
   #RX Dart
   rxdart: 0.24.1
   #Future-based API for HTTP requests.
-  http: ^0.12.0+1
+  http: ^0.13.3   #0.12.0+1
   #Automatically resize text to fit perfectly within its bounds.
   auto_size_text: 2.1.0
   #A Flutter package for scaling the size your apps UI and fontSize across different sized devices
@@ -45,6 +45,8 @@ dev_dependencies:
   #Provides internationalization and localization facilities, including message translation,
   #plurals and genders, date/number formatting and parsing, and bidirectional text.
   intl: ^0.17.0
+  #Svg Images
+  flutter_svg: ^0.22.0
 
 
 
@@ -64,6 +66,10 @@ flutter:
     - Assets/images/lp_image.png
     - Assets/Icons/icons-basket.png
     - Assets/Cart/emptyCart.png
+    - Assets/Icons/icon-home.png
+    - Assets/Icons/icons-office.png
+    - Assets/g_pay.svg
+    - Assets/applepay.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 //Just replace with existing base url here.
 class APIS {
   // static var baseurl = "http://groweasy.in/webservices/";
-  static var baseurl = "https://www.instadoor.com/webservices/";
+  static var baseurl = "www.instadoor.com";
   // static var baseurl = "http://192.168.18.27:80/webservices/";
 
   static var checkEmail = baseurl + "checkemail";
@@ -54,10 +54,10 @@ class APIS {
   static var getDriverLocation = baseurl + "get_driver_location";
   static var subCategoryList = baseurl + 'subcategories/';
   static var productList = baseurl + 'product_list/';
-  static var shopProductList = baseurl + 'shopwise_product_list/';
+  static var shopProductList =  '/webservices/shopwise_product_list';
   static var productDetails = baseurl + 'product_details/';
-  static var addtoCart = baseurl + 'addToCart';
-  static var cartList = baseurl + 'cartList';
+  static var addtoCart =  '/webservices/addToCart';
+  static var cartList =  '/webservices/cartList';
   static var deleteItemFromCart = baseurl + 'deleteCart/';
   static var updateCart = baseurl + 'updateCart/';
   static var getTimeZone =

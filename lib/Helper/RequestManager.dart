@@ -14,7 +14,7 @@ class Requestmanager {
   Future<ResStoreProductList> fetchShopProducts(
       String url, dynamic param) async {
     print('$url $param');
-    http.Response response = await _apiRequest(url, param);
+    http.Response response = await _apiRequest(APIS.baseurl,APIS.shopProductList, param);
     print('Response==>${response.body}');
     if (response.statusCode == 200) {
       var result = json.decode(response.body);
@@ -38,7 +38,7 @@ class Requestmanager {
   //Fetch CartList Data
   Future<ResCartList> fetchCartData(String userId) async {
     final param = {"user_id": userId};
-    http.Response response = await _apiRequest(APIS.cartList, param);
+    http.Response response = await _apiRequest(APIS.baseurl,APIS.cartList, param);
     if (response.statusCode == 200) {
       var result = json.decode(response.body);
       print("Cart List Details:------>$result");
@@ -64,12 +64,12 @@ class Requestmanager {
     }
   }
 
-  //Add to Cart Item
+  //Add Selected Items Into Cart
   Future<bool> addtoCart(List<CartItems> cartitems) async {
     if(cartitems.length > 0){
-      var param = jsonEncode(cartitems);
-      //print('Request Param'+param);
-      http.Response response = await _apiRequestJson(APIS.addtoCart, param);
+      dynamic param = json.encode(cartitems);
+      print('Request Param'+param);
+      http.Response response = await _apiRequestJson('www.instadoor.com','/webservices/addToCart', param);
       if (response.statusCode == 200) {
         var responseData = json.decode(response.body);
         //print('ResponseData===>'+response.body);
@@ -88,68 +88,30 @@ class Requestmanager {
   }
 
 
-  Future<String> ShopProducts() async {
-    var url =
-    Uri.https('www.instadoor.com', '/webservices/shopwise_product_list/',
-        {
-          "subcat_id": "0",
-          "shop_id": "1",
-          "user_id": "2",
-          "cat_id": "10"
-        }
-    );
+                //  <######Common Method for request api#######>
 
-    // Await the http get response, then decode the json-formatted response.
-    var response = await http.get(url);
-    if (response.statusCode == 200) {
-      print('Response Code==> ${response.statusCode}');
-      var jsonResponse = json.decode(response.body) ;
-      print('Number of books about http: ${jsonResponse}');
-    } else {
-      print('Request failed with status: ${response.statusCode}.');
-    }
-  }
-
-  Future<ResStoreProductList> getDatat() async {
-    var url =
-    Uri.https('www.googleapis.com', '/books/v1/volumes', {'q': '{http}'});
-
-    // Await the http get response, then decode the json-formatted response.
-    var response = await http.get(url);
-    if (response.statusCode == 200) {
-      var jsonResponse =
-      convert.jsonDecode(response.body) as Map<String, dynamic>;
-      var itemCount = jsonResponse['totalItems'];
-      print('Number of books about http: $itemCount.');
-    } else {
-      print('Request failed with status: ${response.statusCode}.');
-    }
-  }
-
-
-  //Common Method for request api
-//POST
-  Future<http.Response> _apiRequest(String url, Map jsonMap) async {
+  //POST
+  Future<http.Response> _apiRequest(String strUrl,String method, Map jsonMap) async {
     var body = jsonEncode(jsonMap);
+    Uri url = new Uri.https(strUrl, method);
     var response = await http.post(
       url,
       headers: {
-        "Accept": "application/json",
-        "content-type": "application/json",
-      },
-      body: body,
+         "Content-Type": "application/x-www-form-urlencoded",
+       },
+       body: body,
     );
     // print(response.body);
     return response;
   }
 
-  Future<http.Response> _apiRequestJson(String url, String body) async {
+  Future<http.Response> _apiRequestJson(String strUrl, String method, String body) async {
     //var body = jsonEncode(jsonMap);
+    Uri url = new Uri.https(strUrl, method);
     var response = await http.post(
       url,
       headers: {
-        "Accept": "application/json",
-        "content-type": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
       },
       body: body,
     );
