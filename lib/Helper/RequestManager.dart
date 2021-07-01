@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:core';
-import 'dart:io';
 import 'package:flutter_web_test/ModelClass/ModelCartList.dart';
 import 'package:flutter_web_test/ModelClass/ModelShopProductList.dart';
 import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
 import 'Constant.dart';
 
 
@@ -14,27 +14,23 @@ class Requestmanager {
   Future<ResStoreProductList> fetchShopProducts(
       String url, dynamic param) async {
     print('$url $param');
-    try {
-      http.Response response = await _apiRequest(url, param);
-      print('Response==>${response.body}');
-      if (response.statusCode == 200) {
-        var result = json.decode(response.body);
-        print("Products:------>$result");
-        final code = result['code'];
-        if (code == 0) {
-          final object = ResStoreProductList();
-          object.code = 0;
-          object.message = "error";
-          object.shopProductList = [];
-          return object;
-        } else {
-          return ResStoreProductList.fromJson(json.decode(response.body));
-        }
+    http.Response response = await _apiRequest(url, param);
+    print('Response==>${response.body}');
+    if (response.statusCode == 200) {
+      var result = json.decode(response.body);
+      print("Products:------>$result");
+      final code = result['code'];
+      if (code == 0) {
+        final object = ResStoreProductList();
+        object.code = 0;
+        object.message = "error";
+        object.shopProductList = [];
+        return object;
       } else {
-        throw Exception("Fetch to failed restaurant details");
+        return ResStoreProductList.fromJson(json.decode(response.body));
       }
-    } on Exception catch (e) {
-      print('Exception==> ${}');
+    } else {
+      throw Exception("Fetch to failed restaurant details");
     }
   }
 
@@ -92,30 +88,49 @@ class Requestmanager {
   }
 
 
-  Future<String> ShopProducts(
-      String url) async {
-    http.Response response = await _apiRequestWithGet(url);
-    if (response.statusCode == 200) {
-      var result = json.decode(response.body);
-      print("Products:------>$result");
-      final code = result['code'];
-      if (code == 0) {
-        return '1';
+  Future<String> ShopProducts() async {
+    var url =
+    Uri.https('www.instadoor.com', '/webservices/shopwise_product_list/',
+        {
+          "subcat_id": "0",
+          "shop_id": "1",
+          "user_id": "2",
+          "cat_id": "10"
+        }
+    );
 
-      } else {
-        return '0';
-      }
+    // Await the http get response, then decode the json-formatted response.
+    var response = await http.get(url);
+    if (response.statusCode == 200) {
+      print('Response Code==> ${response.statusCode}');
+      var jsonResponse = json.decode(response.body) ;
+      print('Number of books about http: ${jsonResponse}');
     } else {
-      throw Exception("Fetch to failed restaurant details");
+      print('Request failed with status: ${response.statusCode}.');
+    }
+  }
+
+  Future<ResStoreProductList> getDatat() async {
+    var url =
+    Uri.https('www.googleapis.com', '/books/v1/volumes', {'q': '{http}'});
+
+    // Await the http get response, then decode the json-formatted response.
+    var response = await http.get(url);
+    if (response.statusCode == 200) {
+      var jsonResponse =
+      convert.jsonDecode(response.body) as Map<String, dynamic>;
+      var itemCount = jsonResponse['totalItems'];
+      print('Number of books about http: $itemCount.');
+    } else {
+      print('Request failed with status: ${response.statusCode}.');
     }
   }
 
 
   //Common Method for request api
 //POST
-  Future<http.Response> _apiRequest(String strUrl, Map jsonMap) async {
+  Future<http.Response> _apiRequest(String url, Map jsonMap) async {
     var body = jsonEncode(jsonMap);
-    Uri url = new Uri(host: strUrl);
     var response = await http.post(
       url,
       headers: {
@@ -128,9 +143,8 @@ class Requestmanager {
     return response;
   }
 
-  Future<http.Response> _apiRequestJson(String strUrl, String body) async {
+  Future<http.Response> _apiRequestJson(String url, String body) async {
     //var body = jsonEncode(jsonMap);
-    Uri url = new Uri(host: strUrl);
     var response = await http.post(
       url,
       headers: {
@@ -151,3 +165,5 @@ Future<http.Response> _apiRequestWithGet(String strUrl) async {
   // print(response.body);
   return response;
 }
+
+

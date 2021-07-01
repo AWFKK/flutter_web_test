@@ -37,7 +37,7 @@ dev_dependencies:
   #RX Dart
   rxdart: 0.24.1
   #Future-based API for HTTP requests.
-  http: ^0.13.3
+  http: ^0.12.0+1
   #Automatically resize text to fit perfectly within its bounds.
   auto_size_text: 2.1.0
   #A Flutter package for scaling the size your apps UI and fontSize across different sized devices

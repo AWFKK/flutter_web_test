@@ -455,7 +455,6 @@ class _ProductsState extends State<Products> {
       "user_id": "2",
       "cat_id": "10"
     };
-    // print('Record Valur ${json.encode(param)}');
     await manager.fetchShopProducts(APIS.shopProductList, param).then((value) {
       //print('ParamValue ${json.encode(value)}');
       setState(() {
