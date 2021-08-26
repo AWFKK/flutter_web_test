@@ -1,1 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:se="http://svg-edit.googlecode.com" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="777" height="480" style="">                                    <title>my vector image</title>                                    <!-- Created with Vector Paint - http://www.vectorpaint.yaks.com/ https://chrome.google.com/webstore/detail/hnbpdiengicdefcjecjbnjnoifekhgdo -->                                    <rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="#FFFFFF" stroke="none"/>                                <g class="currentLayer" style=""><title>Layer 1</title><path fill="#7445d1" fill-opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="2" stroke-dasharray="none" stroke-linejoin="round" stroke-linecap="butt" stroke-dashoffset="" fill-rule="nonzero" opacity="1" marker-start="" marker-mid="" marker-end="" id="svg_1" d="M1.6696178265484671,-1.5505652653492126 L0.561790496264349,476.9663231778485 L781.4606810091016,197.8692564475448 L781.4606810091016,19.360472650497755 L781.4606810091016,0.9428997190564044 L1.6696178265484671,-1.5505652653492126 z" style="color: rgb(0, 0, 0);" class=""/></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns="http://www.w3.org/2000/svg"
+    id="svg10"
+    version="1.1"
+    style=""
+    height="480"
+    width="777">
+    <metadata
+        id="metadata16">
+        <rdf:RDF>
+            <cc:Work
+                rdf:about="">
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type
+                    rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+            </cc:Work>
+        </rdf:RDF>
+    </metadata>
+    <defs
+        id="defs14" />
+    <title
+        id="title2">my vector image</title>
+    <!-- Created with Vector Paint - http://www.vectorpaint.yaks.com/ https://chrome.google.com/webstore/detail/hnbpdiengicdefcjecjbnjnoifekhgdo -->
+    <rect
+        stroke="none"
+        fill="#FFFFFF"
+        y="0"
+        x="0"
+        height="100%"
+        width="100%"
+        id="backgroundrect" />
+    <g
+        id="g8"
+        style=""
+        class="currentLayer">
+        <title
+            id="title5">Layer 1</title>
+        <path
+            class=""
+            style="color: rgb(0, 0, 0);"
+            d="M1.6696178265484671,-1.5505652653492126 L0.561790496264349,476.9663231778485 L781.4606810091016,197.8692564475448 L781.4606810091016,19.360472650497755 L781.4606810091016,0.9428997190564044 L1.6696178265484671,-1.5505652653492126 z"
+            id="svg_1"
+            marker-end=""
+            marker-mid=""
+            marker-start=""
+            opacity="1"
+            fill-rule="nonzero"
+            stroke-dashoffset=""
+            stroke-linecap="butt"
+            stroke-linejoin="round"
+            stroke-dasharray="none"
+            stroke-width="2"
+            stroke-opacity="1"
+            stroke="#ffffff"
+            fill-opacity="1"
+            fill="#7445d1" />
+    </g>
+</svg>

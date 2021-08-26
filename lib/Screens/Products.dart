@@ -72,7 +72,7 @@ class _ProductsState extends State<Products> {
                   Expanded(
                     child: Container(
                       //color: Colors.grey,
-                      child: _gridLayout(context, 4),
+                      child: _gridLayout(context, 6),
                     ),
                   ),
 
@@ -322,6 +322,7 @@ class _ProductsState extends State<Products> {
           maintainAnimation: true,
           child: InkWell(
             onTap:() async {
+              print('Add');
               hideWidget();
               final param = {
                 "user_id": "0",

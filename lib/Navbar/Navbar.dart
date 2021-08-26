@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_test/Helper/CommonWidgets.dart';
+import 'package:flutter_web_test/Helper/Constant.dart';
+import 'package:flutter_web_test/Screens/Products.dart';
 
 class NavBar extends StatelessWidget {
   @override
@@ -27,40 +30,47 @@ class MobileNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
       child: Container(
         child: Column(
           children: [
 
-            SizedBox(height: 20.0,),
+            SizedBox(height: 10.0,),
 
             Text('InstaDoor',
               style: TextStyle(
-                  fontWeight: FontWeight.bold, color: Colors.white, fontSize: 30),
+                  fontWeight: FontWeight.bold, color: Colors.black, fontSize: 30),
             ),
 
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Home',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  SizedBox(width: 10,),
-                  Text(
-                    'About Us',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  SizedBox(width: 10,),
-                  Text(
-                    'Portfolio',
-                    style: TextStyle(color: Colors.white),
-                  ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
 
+                    setCommonText('Home',
+                        AppColor.black, 16.0,
+                        FontWeight.w900, 1),
 
-                ],
+                    SizedBox(width: 10,),
+                    setCommonText('About Us',
+                        AppColor.black, 16.0,
+                        FontWeight.w900, 1),
+
+                    SizedBox(width: 10,),
+                    setCommonText('Terms And Conditions',
+                        AppColor.black, 16.0,
+                        FontWeight.w900, 1),
+
+                    SizedBox(width: 10,),
+                    setCommonText('Privacy Policy',
+                        AppColor.black, 16.0,
+                        FontWeight.w900, 1),
+
+                  ],
+                ),
               ),
             ),
           ],
@@ -81,36 +91,46 @@ class DesktopNavBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Instadoor',
-              style: TextStyle(
-              fontWeight: FontWeight.bold, color: Colors.white, fontSize: 30),
-            ),
+            setCommonText('InstaDoor',
+                AppColor.black, 30.0,
+                FontWeight.w900, 1),
 
             Row(
               children: [
-                Text(
-                  'Home',
-                  style: TextStyle(color: Colors.white),
-                ),
+                setCommonText('Home',
+                    AppColor.black, 16.0,
+                    FontWeight.w900, 1),
+
                 SizedBox(width: 10,),
-                Text(
-                  'About Us',
-                  style: TextStyle(color: Colors.white),
-                ),
+                setCommonText('About Us',
+                    AppColor.black, 16.0,
+                    FontWeight.w900, 1),
+
                 SizedBox(width: 10,),
-                Text(
-                  'Portfolio',
-                  style: TextStyle(color: Colors.white),
-                ),
+                setCommonText('Terms And Conditions',
+                    AppColor.black, 16.0,
+                    FontWeight.w900, 1),
+
                 SizedBox(width: 10,),
+                setCommonText('Privacy Policy',
+                    AppColor.black, 16.0,
+                    FontWeight.w900, 1),
+
+                SizedBox(width: 30,),
 
                 MaterialButton(
-                  color: Colors.pink,
+                  color: AppColor.newthemeColorLogo,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                  onPressed: (){},
+                      borderRadius: BorderRadius.all(Radius.circular(40.0))),
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Products()),
+                      //MaterialPageRoute(builder: (context) => StripPayment()),
+                    );
+                  },
                   child: Text(
-                    'Get Started',
+                    'F&Qs ',
                     style: TextStyle(color: Colors.white),
                   ),
                 )

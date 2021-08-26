@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_test/LandingPage/orderNow.dart';
+import 'package:flutter_web_test/LandingPage/packAndDeliver.dart';
 import 'package:flutter_web_test/LandingPage/LandingPage.dart';
 import 'package:flutter_web_test/Navbar/Navbar.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,27 +28,59 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors:[Color.fromRGBO(195, 20, 50, 1.0),Color.fromRGBO(36, 11, 54, 1.0)]
-          )
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            children:<Widget>[
-              NavBar(),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20.0,horizontal: 40.0),
-                child: LandingPage(),
-              ),
-            ],
-          ),
+      body: SingleChildScrollView(
+        child: Column(
+          children:<Widget>[
+            Container(
+                color: Colors.white,
+                child: NavBar()
+            ),
+            Container(
+              child: LandingPage(),
+            ),
+
+            OrderNow(),
+            Home2(),
+
+          ],
         ),
       ),
     );
   }
 }
 
+class TriangleClipper extends CustomPainter  {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint();
+    Path path = Path();
+
+
+    // Path number 1
+    paint.color = Color(0xffFFFFFF);
+    path = Path();
+    path.lineTo(0, 0);
+    path.cubicTo(0, 0, size.width * 0.13, 0, size.width * 0.13, 0);
+    path.cubicTo(size.width * 0.13, 0, size.width * 0.13, size.height / 5, size.width * 0.13, size.height / 5);
+    path.cubicTo(size.width * 0.13, size.height / 5, 0, size.height / 5, 0, size.height / 5);
+    path.cubicTo(0, size.height / 5, 0, 0, 0, 0);
+    canvas.drawPath(path, paint);
+
+
+    // Path number 2
+    paint.color = Color(0xff7445d1);
+    path = Path();
+    path.lineTo(0, 0);
+    path.cubicTo(0, 0, 0, size.height, 0, size.height);
+    path.cubicTo(0, size.height, size.width, size.height * 0.41, size.width, size.height * 0.41);
+    path.cubicTo(size.width, size.height * 0.41, size.width, size.height * 0.04, size.width, size.height * 0.04);
+    path.cubicTo(size.width, size.height * 0.04, size.width, 0, size.width, 0);
+    path.cubicTo(size.width, 0, 0, 0, 0, 0);
+    path.cubicTo(0, 0, 0, 0, 0, 0);
+    canvas.drawPath(path, paint);
+  }
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
+  }
+}

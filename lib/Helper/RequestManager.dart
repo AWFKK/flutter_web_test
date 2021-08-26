@@ -16,6 +16,9 @@ class Requestmanager {
     print('$url $param');
     http.Response response = await _apiRequest(APIS.baseurl,APIS.shopProductList, param);
     print('Response==>${response.body}');
+
+
+
     if (response.statusCode == 200) {
       var result = json.decode(response.body);
       print("Products:------>$result");
@@ -97,9 +100,12 @@ class Requestmanager {
     var response = await http.post(
       url,
       headers: {
-         "Content-Type": "application/x-www-form-urlencoded",
-       },
-       body: body,
+        "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+        //"Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
+        "Access-Control-Allow-Headers": "Origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,locale",
+        "Access-Control-Allow-Methods": "POST, OPTIONS"
+      },
+      body: body,
     );
     // print(response.body);
     return response;
