@@ -9,7 +9,6 @@ class OrderNow extends StatelessWidget {
 
 
   List<Widget> pageChildren(double width, BuildContext context){
-    double space = MediaQuery.of(context).size.width/3;
     return <Widget>[
       // Welcome Text And Over View Button
       Container(

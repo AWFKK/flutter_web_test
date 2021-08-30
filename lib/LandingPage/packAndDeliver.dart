@@ -3,7 +3,7 @@ import 'package:flutter_web_test/Helper/CommonWidgets.dart';
 import 'package:flutter_web_test/Helper/Constant.dart';
 
 
-class Home2 extends StatelessWidget {
+class PackAndDelivered extends StatelessWidget {
 
   List<Widget> pageChildren(double width, BuildContext context){
     double space = MediaQuery.of(context).size.width/3;

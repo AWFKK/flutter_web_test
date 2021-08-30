@@ -50,6 +50,8 @@ dev_dependencies:
   #Conveniently secure payments methods using Stripe.
   stripe_payment: ^1.1.4
 
+  mouse_parallax: ^1.1.0
+
 
 
 
@@ -78,7 +80,19 @@ flutter:
     - Assets/background1.png
     - Assets/background3.png
     - Assets/background2.png
+    - Assets/background4.png
+    - Assets/image4.png
+    - Assets/nrd.jpg
     - Assets/mobile.png
+    - Assets/PF/parallax0.png
+    - Assets/PF/parallax1.png
+    - Assets/PF/parallax2.png
+    - Assets/PF/parallax3.png
+    - Assets/PF/parallax4.png
+    - Assets/PF/parallax5.png
+    - Assets/PF/parallax6.png
+    - Assets/PF/parallax7.png
+    - Assets/PF/parallax8.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

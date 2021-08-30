@@ -2,11 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_test/Helper/CommonWidgets.dart';
 import 'package:flutter_web_test/Helper/Constant.dart';
+import 'package:mouse_parallax/mouse_parallax.dart';
 
 
-class LandingPage extends StatelessWidget {
+class LandingPage extends StatefulWidget {
 
 
+  @override
+  _LandingPageState createState() => _LandingPageState();
+}
+
+class _LandingPageState extends State<LandingPage> {
+
+  
   List<Widget> pageChildren(double width, BuildContext context){
     return <Widget>[
       // Welcome Text And Over View Button
@@ -19,7 +27,7 @@ class LandingPage extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 40.0,
-                color: Colors.white
+                color: AppColor.newthemeColorLogo
               ),),
 
             Padding(
@@ -61,6 +69,8 @@ class LandingPage extends StatelessWidget {
     ];
   }
 
+  double topOne = 0;
+  double topTwo = 100;
 
   @override
   Widget build(BuildContext context) {
@@ -77,8 +87,9 @@ class LandingPage extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage("Assets/background1.png"),
-                        fit: BoxFit.fill,
+                        colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.7), BlendMode.dstATop),
+                        image: AssetImage("Assets/nrd.jpg"),
+                        fit: BoxFit.cover,
                       ),
                     ),
                     child: Row(
@@ -152,7 +163,7 @@ class LandingPage extends StatelessWidget {
   }
 }
 
-class TriangleClipper extends CustomPainter  {
+/*class TriangleClipper extends CustomPainter  {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint();
@@ -185,5 +196,29 @@ class TriangleClipper extends CustomPainter  {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
     return true;
+  }
+}*/
+
+class ParallaxWidget extends StatelessWidget {
+  const ParallaxWidget({
+    Key key,
+    @required this.top,
+    @required this.asset,
+  }) : super(key: key);
+
+  final double top;
+  final String asset;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      left: -45,
+      top: top,
+      child: Container(
+        height: 550,
+        width: 900,
+        child: Image.asset("assets/$asset.png", fit: BoxFit.cover),
+      ),
+    );
   }
 }

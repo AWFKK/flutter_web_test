@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_test/Helper/CommonWidgets.dart';
 import 'package:flutter_web_test/Helper/Constant.dart';
+import 'package:flutter_web_test/LandingPage/ParallexEffectHome.dart';
 import 'package:flutter_web_test/Screens/Products.dart';
 
 class NavBar extends StatelessWidget {
@@ -97,9 +98,14 @@ class DesktopNavBar extends StatelessWidget {
 
             Row(
               children: [
-                setCommonText('Home',
-                    AppColor.black, 16.0,
-                    FontWeight.w900, 1),
+                InkWell(
+                  onTap: (){
+                    print('Home');
+                  },
+                  child: setCommonText('Home',
+                      AppColor.black, 16.0,
+                      FontWeight.w900, 1),
+                ),
 
                 SizedBox(width: 10,),
                 setCommonText('About Us',

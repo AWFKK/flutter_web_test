@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_test/LandingPage/ParallexEffectHome.dart';
 import 'package:flutter_web_test/LandingPage/orderNow.dart';
 import 'package:flutter_web_test/LandingPage/packAndDeliver.dart';
 import 'package:flutter_web_test/LandingPage/LandingPage.dart';
@@ -36,12 +37,9 @@ class MyHomePage extends StatelessWidget {
                 child: NavBar()
             ),
             Container(
-              child: LandingPage(),
+              height: MediaQuery.of(context).size.height,
+              child: ParallexEffectHome(),
             ),
-
-            OrderNow(),
-            Home2(),
-
           ],
         ),
       ),
