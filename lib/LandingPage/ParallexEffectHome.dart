@@ -37,7 +37,7 @@ class _ParallexEffectHomeState extends State<ParallexEffectHome> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('WELCOME TO INSTADOOR!',
+            Text('WELCOME TO GROCERY WEB!',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 40.0,
@@ -47,7 +47,7 @@ class _ParallexEffectHomeState extends State<ParallexEffectHome> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               child: Text(
-                "Instadoor is an online supermarket, new in your town. We assure you instant and quickest deliveries of your needs. Just order it, we’ll deliver it instantly. Try Now!",
+                "GROCERY is an online supermarket, new in your town. We assure you instant and quickest deliveries of your needs. Just order it, we’ll deliver it instantly. Try Now!",
                 style: TextStyle(fontSize: 16.0, color: Colors.white),
               ),
             ),

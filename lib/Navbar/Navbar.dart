@@ -92,9 +92,19 @@ class DesktopNavBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            setCommonText('InstaDoor',
-                AppColor.black, 30.0,
-                FontWeight.w900, 1),
+            Row(children: [
+              Container(
+                height: 45,
+                width: 45,
+                child:Image.asset('Assets/Icons/icons-basket.png'),
+              ),
+
+              SizedBox(width: 20,),
+
+              setCommonText('GROCERY',
+                  AppColor.black, 30.0,
+                  FontWeight.w900, 1),
+            ],),
 
             Row(
               children: [
